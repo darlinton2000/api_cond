@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class WallController extends Controller
 {
+    /**
+     * Lista as informações do mural do usuário autênticado
+     *
+     * @return array
+     */
     public function getAll(): array
     {
         $array = ['error' => '', 'list' => []];
