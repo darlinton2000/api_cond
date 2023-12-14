@@ -9,7 +9,7 @@ use App\Http\Controllers\DocController;
 use App\Http\Controllers\FoundAndLostController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UnitController;
-use App\Http\Controllers\UserController;    
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WallController;
 use App\Http\Controllers\WarningController;
 
@@ -39,7 +39,7 @@ Route::middleware('auth:api')->group(function(){
 
     // Mural de Avisos
     Route::get('/walls', [WallController::class, 'getAll']);
-    Route::get('/wall/{id}/like', [WallController::class, 'like']);
+    Route::post('/wall/{id}/like', [WallController::class, 'like']);
 
     // Documentos
     Route::get('/doc', [DocController::class, 'getAll']);

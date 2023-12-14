@@ -41,4 +41,38 @@ class WallController extends Controller
 
         return $array;
     }
+
+    /**
+     * O usuário autênticado descurte/curte a postagem no mural
+     *
+     * @param $id
+     * @return array
+     */
+    public function like(int $id): array
+    {
+        $array = ['error' => ''];
+
+        $user = auth()->user();
+
+        $meLikes = WallLike::where('id_wall', $id)
+            ->where('id_user', $user['id'])
+            ->count();
+
+        if ($meLikes > 0) {
+            // Remover like
+            WallLike::where('id_wall', $id)->where('id_user', $user['id'])->delete();
+            $array['liked'] = false;
+        } else {
+            // Adicionar like
+            $newLike = new WallLike();
+            $newLike->id_wall = $id;
+            $newLike->id_user = $user['id'];
+            $newLike->save();
+            $array['liked'] = true;
+        }
+
+        $array['likes'] = WallLike::where('id_wall', $id)->count();
+
+        return $array;
+    }
 }
