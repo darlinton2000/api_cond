@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class DocController extends Controller
 {
+    /**
+     * Retorna os documentos
+     *
+     * @return array
+     */
     public function getAll(): array
     {
         $array = ['error' => ''];
