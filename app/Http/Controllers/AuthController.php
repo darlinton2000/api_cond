@@ -22,7 +22,7 @@ class AuthController extends Controller
      * Registro do usuário
      *
      * @param Request $request
-     * @return array
+     * @return string[]
      */
     public function register(Request $request): array
     {
@@ -83,7 +83,7 @@ class AuthController extends Controller
      * Realiza a autênticação do usuário
      *
      * @param Request $request
-     * @return array
+     * @return string[]
      */
     public function login(Request $request): array
     {
@@ -129,7 +129,7 @@ class AuthController extends Controller
     /**
      * Validação do token
      *
-     * @return array
+     * @return string[]
      */
     public function validateToken(): array
     {
@@ -150,7 +150,7 @@ class AuthController extends Controller
     /**
      * Desloga o usuário
      *
-     * @return array
+     * @return string[]
      */
     public function logout(): array
     {

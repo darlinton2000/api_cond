@@ -11,7 +11,7 @@ class WallController extends Controller
     /**
      * Lista as informações do mural do usuário autênticado
      *
-     * @return array
+     * @return string[]
      */
     public function getAll(): array
     {
@@ -46,7 +46,7 @@ class WallController extends Controller
      * O usuário autênticado descurte/curte a postagem no mural
      *
      * @param $id
-     * @return array
+     * @return string[]
      */
     public function like(int $id): array
     {

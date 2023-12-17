@@ -10,7 +10,7 @@ class DocController extends Controller
     /**
      * Retorna os documentos
      *
-     * @return array
+     * @return string[]
      */
     public function getAll(): array
     {

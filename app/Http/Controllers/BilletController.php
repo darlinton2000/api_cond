@@ -12,7 +12,7 @@ class BilletController extends Controller
      * Retorna os boletos de acordo com a propriedade enviada
      *
      * @param Request $request
-     * @return array
+     * @return string[]
      */
     public function getAll(Request $request): array
     {

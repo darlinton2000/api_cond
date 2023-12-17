@@ -10,7 +10,7 @@ class FoundAndLostController extends Controller
     /**
      * Retorna a lista dos achados e perdidos
      *
-     * @return array
+     * @return string[]
      */
     public function getAll(): array
     {

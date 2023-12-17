@@ -14,7 +14,7 @@ class WarningController extends Controller
      * Retorna as ocorrências que o usuário autênticado registrou
      *
      * @param Request $request
-     * @return array
+     * @return string[]
      */
     public function getMyWarnings(Request $request): array
     {
@@ -60,7 +60,7 @@ class WarningController extends Controller
      * Envia foto para a ocorrência
      *
      * @param Request $request
-     * @return array
+     * @return string[]
      */
     public function addWarningFile(Request $request): array
     {
@@ -86,7 +86,7 @@ class WarningController extends Controller
      * Adiciona uma ocorrência no livro
      *
      * @param Request $request
-     * @return array
+     * @return string[]
      */
     public function setMyWarning(Request $request): array
     {
