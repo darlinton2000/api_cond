@@ -45,11 +45,11 @@ class UnitController extends Controller
     /**
      * Adiciona pessoa
      *
-     * @param $id
+     * @param int $id
      * @param Request $request
      * @return string[]
      */
-    public function addPerson($id, Request $request): array
+    public function addPerson(int $id, Request $request): array
     {
         $array = ['error' => ''];
 
@@ -78,11 +78,11 @@ class UnitController extends Controller
     /**
      * Adiciona veículo
      *
-     * @param $id
+     * @param int $id
      * @param Request $request
      * @return string[]
      */
-    public function addVehicle($id, Request $request): array
+    public function addVehicle(int $id, Request $request): array
     {
         $array = ['error' => ''];
 
@@ -114,11 +114,11 @@ class UnitController extends Controller
     /**
      * Adiciona animal de estimação
      *
-     * @param $id
+     * @param int $id
      * @param Request $request
      * @return string[]
      */
-    public function addPet($id, Request $request): array
+    public function addPet(int $id, Request $request): array
     {
         $array = ['error' => ''];
 
@@ -138,6 +138,75 @@ class UnitController extends Controller
             $newPet->save();
         } else {
             $array['error'] = $validator->errors()->first();
+            return $array;
+        }
+
+        return $array;
+    }
+
+    /**
+     * Remove pessoa
+     *
+     * @param int $id
+     * @param Request $request
+     * @return string[]
+     */
+    public function removePerson(int $id, Request $request): array
+    {
+        $array = ['error' => ''];
+
+        $idItem = $request->input('id');
+
+        if ($idItem) {
+            UnitPeople::where('id', $idItem)->where('id_unit', $id)->delete();
+        } else {
+            $array['error'] = 'ID inexistente';
+            return $array;
+        }
+
+        return $array;
+    }
+
+    /**
+     * Remove veículo
+     *
+     * @param int $id
+     * @param Request $request
+     * @return string[]
+     */
+    public function removeVehicle(int $id, Request $request): array
+    {
+        $array = ['error' => ''];
+
+        $idItem = $request->input('id');
+
+        if ($idItem) {
+            UnitVehicle::where('id', $idItem)->where('id_unit', $id)->delete();
+        } else {
+            $array['error'] = 'ID inexistente';
+            return $array;
+        }
+
+        return $array;
+    }
+
+    /**
+     * Remove animal de estimação
+     *
+     * @param int $id
+     * @param Request $request
+     * @return string[]
+     */
+    public function removePet(int $id, Request $request): array
+    {
+        $array = ['error' => ''];
+
+        $idItem = $request->input('id');
+
+        if ($idItem) {
+            UnitPet::where('id', $idItem)->where('id_unit', $id)->delete();
+        } else {
+            $array['error'] = 'ID inexistente';
             return $array;
         }
 
